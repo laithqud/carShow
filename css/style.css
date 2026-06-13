@@ -29,7 +29,7 @@ nav ul li a{
 
 main{
     position: relative;
-    height: 100vh;
+    height: 80vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -62,4 +62,97 @@ main a{
     font-weight: bold;
     text-shadow: 2px 2px 4px #1B4E00;
     border-radius: 5px;
+}
+.about-Explore-section{
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+
+}
+.about-Explore1{
+    margin: 0 20px;
+    width: 50%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #3C723C;
+}
+.about-Explore1-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    width: 50%;
+}
+.about-text{
+    font-size: 24px;
+    margin-right: 20px;
+}
+.about-text-btn{
+    color: white;
+    margin-top: 20px;
+}
+.about-img{
+    width: 100%;
+    border-radius: 0 10px 10px 0;
+
+}
+.about-img-container{
+    width: 50%;
+    background-image: url('../images/about-us.png');
+    border-radius: 0 10px 10px 0;
+}
+.about-Explore2{
+    margin: 0 20px;
+    width: 50%;
+    border-radius: 10px;
+    font-size: 18px;
+    background-image: url('../images/dreamCar.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.section2{
+    border:#1B4E00 2px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.brands-img{
+    width: 60%;
+    height: 70%;
+    margin: 20px;
+    border-radius: 10px;
+}
+.brands-btn{
+    padding: 15px 30px;
+    background-color: #3C723C;
+    color: white;
+    font-weight: bolder;
+     -webkit-text-stroke: 1px white;
+     text-shadow: 2px 2px 4px #1B4E00;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px black;
+}
+
+footer{
+    background-color: #1B4E00;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
