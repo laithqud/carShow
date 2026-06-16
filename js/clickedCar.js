@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
-
 const make = params.get("make");
 
+// صورة البراند (يدوي)
 const brandImages = {
   "MERCEDES-BENZ": "../images/mercedes.jpg",
   "BMW": "../images/bmw.jpg",
@@ -11,66 +11,62 @@ const brandImages = {
   "DODGE": "../images/dodge.jpg"
 };
 
+// ضع API KEY هنا 👇
+const PEXELS_API_KEY = "QyxvhHOlRrZfA8qlmhJWK46tO7a6uR5EO9AhiOZ68gk3Bejw4YO3Bz88";
+
+function fetchPexelsImage(query) {
+  return fetch(
+    `https://api.pexels.com/v1/search?query=${query}&per_page=1`,
+    {
+      headers: {
+        Authorization: PEXELS_API_KEY
+      }
+    }
+  )
+    .then(res => res.json())
+    .then(data => {
+      if (data.photos && data.photos.length > 0) {
+        return data.photos[0].src.medium;
+      }
+      return "../images/default-car.jpg";
+    })
+    .catch(() => "../images/default-car.jpg");
+}
+
+// عرض بيانات البراند
 document.getElementById("brand-details").innerHTML = `
-
   <div class="car-details">
-
-    <img
-      src="${brandImages[make]}"
-      class="car-img2"
-      alt="${make}"
-    >
-
+    <img src="${brandImages[make]}" class="car-img2" alt="${make}">
     <div style="width:40%">
-
       <h1>${make}</h1>
-
-      <br>
-
-      <p>
-        Browse available models from ${make}.
-      </p>
-
+      <p>Explore available models from ${make}</p>
     </div>
-
   </div>
-
 `;
 
-fetch(
-  `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${make}?format=json`
-)
-.then(response => response.json())
-.then(data => {
+// جلب الموديلات
+fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${make}?format=json`)
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("ranges");
+    container.innerHTML = "";
 
-  let html = "";
+    data.Results.slice(0, 12).forEach(model => {
 
-  data.Results.slice(0, 20).forEach(model => {
+      const query = `${make} ${model.Model_Name}`;
 
-    html += `
+      fetchPexelsImage(query).then(imageUrl => {
 
-      <a
-        href="range.html?make=${make}&model=${encodeURIComponent(model.Model_Name)}"
-        class="car-range-link">
+        container.innerHTML += `
+          <a class="car-range-link" href="range.html?make=${make}&model=${encodeURIComponent(model.Model_Name)}">
+            <div class="car-range">
+              <img src="${imageUrl}" class="car-range-img" alt="${model.Model_Name}">
+              <h2>${model.Model_Name}</h2>
+            </div>
+          </a>
+        `;
 
-        <div class="car-range">
+      });
 
-          <img
-            src="../images/default-car.jpg"
-            class="car-range-img"
-            alt="${model.Model_Name}"
-          >
-
-          <h2>${model.Model_Name}</h2>
-
-        </div>
-
-      </a>
-
-    `;
-
+    });
   });
-
-  document.getElementById("ranges").innerHTML = html;
-
-});
