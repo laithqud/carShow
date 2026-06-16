@@ -1,0 +1,102 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "name": "Mercedes-Benz",
+      "image": "../images/mercedes.jpg",
+      "description": "Mercedes-Benz is one of the world's leading luxury automotive manufacturers.",
+
+      "ranges": [
+        {
+          "id": 101,
+          "name": "A-Class",
+          "image": "../images/aclass.jpeg",
+          "description": "Produced since 1997, the A-Class is Mercedes-Benz's compact vehicle range.",
+
+          "specifications": {
+            "year": 2024,
+            "engine": "1.3L Turbo",
+            "horsepower": "163 HP",
+            "transmission": "Automatic",
+            "fuelType": "Petrol",
+            "topSpeed": "225 km/h"
+          },
+
+          "popularModels": [
+            {
+              "name": "A180",
+              "image": "../images/aclass.jpeg"
+            },
+            {
+              "name": "A200",
+              "image": "../images/aclass2.jpg"
+            }
+          ]
+        },
+
+        {
+          "id": 102,
+          "name": "C-Class",
+          "image": "../images/cclass.jpg",
+          "description": "The Mercedes-Benz C-Class is a luxury compact executive car.",
+
+          "specifications": {
+            "year": 2024,
+            "engine": "2.0L Turbo",
+            "horsepower": "255 HP",
+            "transmission": "Automatic",
+            "fuelType": "Petrol",
+            "topSpeed": "250 km/h"
+          },
+
+          "popularModels": [
+            {
+              "name": "C200",
+              "image": "../images/cclass.jpg"
+            },
+            {
+              "name": "C300",
+              "image": "../images/cclass2.jpg"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "name": "BMW",
+      "image": "../images/bmw.jpg",
+      "description": "BMW is a German manufacturer of luxury vehicles and motorcycles.",
+
+      "ranges": [
+        {
+          "id": 201,
+          "name": "3 Series",
+          "image": "../images/bmw3.jpg",
+          "description": "The BMW 3 Series is a compact executive car.",
+
+          "specifications": {
+            "year": 2024,
+            "engine": "2.0L Turbo",
+            "horsepower": "255 HP",
+            "transmission": "Automatic",
+            "fuelType": "Petrol",
+            "topSpeed": "250 km/h"
+          },
+
+          "popularModels": [
+            {
+              "name": "320i",
+              "image": "../images/bmw320.jpg"
+            },
+            {
+              "name": "330i",
+              "image": "../images/bmw330.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
